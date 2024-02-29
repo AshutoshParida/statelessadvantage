@@ -18,7 +18,7 @@
 
 
 
-# Installation 9 Windows)
+# Installation on Windows
 Install Kubectl
 Install Helm
 Install AZ CLI 
