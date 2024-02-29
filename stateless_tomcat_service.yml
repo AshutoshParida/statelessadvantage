@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-tomcat-loadbalancer
+  labels: 
+    app: my-tomcat-loadbalancer
+spec:
+  type: LoadBalancer 
+  selector:
+    app: my-tomcat-app
+  ports: 
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

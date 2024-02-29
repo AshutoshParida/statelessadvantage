@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-tomcat-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-tomcat-app
+  template:
+    metadata:
+      labels:
+        app: my-tomcat-app # the label for the pods and the deployments
+    spec:
+      containers:
+      - name: my-tomcat-app
+        image: statelesscontreg.azurecr.io/my-tomcat-app:latest # IMPORTANT: update with your own repository
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080 # the application listens to this port
+        readinessProbe: # is the container ready to receive traffic?
+          httpGet:
+            port: 3000
+            path: /healthz
+        livenessProbe: # is the container healthy?
+          httpGet:
+            port: 3000
+            path: /healthz
