@@ -1,0 +1,12 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: stateless-storage-class
+provisioner: disk.csi.azure.com
+parameters:
+  skuName: Premium_ZRS
+  cachingMode: None        # Caching mode (None, ReadOnly, ReadWrite)
+  kind: Managed            # Disk kind (Managed or Shared)
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
