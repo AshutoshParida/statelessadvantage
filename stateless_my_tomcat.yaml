@@ -18,11 +18,14 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080 # the application listens to this port
-        readinessProbe: # is the container ready to receive traffic?
-          httpGet:
-            port: 3000
-            path: /healthz
-        livenessProbe: # is the container healthy?
-          httpGet:
-            port: 3000
-            path: /healthz
+#        readinessProbe: # is the container ready to receive traffic?
+#          httpGet:
+#            port: 3000
+#            path: /healthz
+#        livenessProbe: # is the container healthy?
+#          httpGet:
+#            port: 3000
+#            path: /healthz
+
+
+            
